@@ -1,0 +1,218 @@
+{% extends 'sbadmin/base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<!-- Page specific plugins -->
+	<!-- Charts -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/sparkline/jquery.sparkline.min.js" %}"></script>
+
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/moment.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/daterangepicker.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/blockui/jquery.blockUI.min.js" %}"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/app.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.form-components.js" %}"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+	});
+	</script>
+
+	<!-- Demo JS -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/custom.js" %}"></script>
+{% endblock %}
+
+{% block body %}
+				<!--=== Page Content ===-->
+				<!--=== Grid Options ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="widget">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Grid Options</h4>
+							</div>
+							<div class="widget-content">
+								<table class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th></th>
+											<th>
+												Extra small devices
+												<small>Phones (&lt;768px)</small>
+											</th>
+											<th>
+												Small devices
+												<small>Tablets (&ge;768px)</small>
+											</th>
+											<th>
+												Medium devices
+												<small>Desktops (&ge;992px)</small>
+											</th>
+											<th>
+												Large devices
+												<small>Desktops (&ge;1200px)</small>
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th>Grid behavior</th>
+											<td>Horizontal at all times</td>
+											<td colspan="3">Collapsed to start, horizontal above breakpoints</td>
+										</tr>
+										<tr>
+											<th>Class prefix</th>
+											<td><code>.col-xs-</code></td>
+											<td><code>.col-sm-</code></td>
+											<td><code>.col-md-</code></td>
+											<td><code>.col-lg-</code></td>
+										</tr>
+										<tr>
+											<th># of columns</th>
+											<td colspan="4">12</td>
+										</tr>
+										<tr>
+											<th>Max column width</th>
+											<td class="text-muted">Auto</td>
+											<td>60px</td>
+											<td>78px</td>
+											<td>95px</td>
+										</tr>
+										<tr>
+											<th>Gutter width</th>
+											<td colspan="4">30px (15px on each side of a column)</td>
+										</tr>
+										<tr>
+											<th>Nestable</th>
+											<td colspan="4">Yes</td>
+										</tr>
+										<tr>
+											<th>Offsets</th>
+											<td colspan="1" class="text-muted">N/A</td>
+											<td colspan="3">Yes</td>
+										</tr>
+										<tr>
+											<th>Column ordering</th>
+											<td class="text-muted">N/A</td>
+											<td colspan="3">Yes</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Grid Options -->
+
+				<!--=== Boxed Example ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<h5 class="widget-title"><i class="icon-sign-blank"></i> Boxed Example</h5>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Minimal</h4>
+							</div>
+							<div class="widget-content">
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+								<a class="more" href="javascript:void(0);">Read more <i class="pull-right icon-angle-right"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> With Toolbar</h4>
+
+								<!-- Toolbar -->
+								<div class="toolbar no-padding">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+										<span class="btn btn-xs widget-refresh"><i class="icon-refresh"></i></span>
+										<span class="btn btn-xs"><i class="icon-plus"></i> Add</span>
+										<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+											Manage <i class="icon-angle-down"></i>
+										</span>
+										<ul class="dropdown-menu pull-right">
+											<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+											<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+											<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /Toolbar -->
+							</div>
+							<div class="widget-content">
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+								<a class="more" href="javascript:void(0);">Read more <i class="pull-right icon-angle-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Boxed Example -->
+
+				<!--=== Unboxed Example ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<h5 class="widget-title"><i class="icon-unchecked"></i> Unboxed Example</h5>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="widget">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Minimal</h4>
+							</div>
+							<div class="widget-content">
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+								<a class="more" href="javascript:void(0);">Read more <i class="pull-right icon-angle-right"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="widget">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> With Toolbar</h4>
+
+								<!-- Toolbar -->
+								<div class="toolbar no-padding">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+										<span class="btn btn-xs widget-refresh"><i class="icon-refresh"></i></span>
+										<span class="btn btn-xs"><i class="icon-plus"></i> Add</span>
+										<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+											Manage <i class="icon-angle-down"></i>
+										</span>
+										<ul class="dropdown-menu pull-right">
+											<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+											<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+											<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+										</ul>
+									</div>
+								</div>
+								<!-- /Toolbar -->
+							</div>
+							<div class="widget-content">
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+								<a class="more" href="javascript:void(0);">Read more <i class="pull-right icon-angle-right"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Unboxed Example -->
+				<!-- /Page Content -->
+{% endblock %}

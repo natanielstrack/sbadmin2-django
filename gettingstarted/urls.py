@@ -4,6 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 import hello.views
+import sbadmin.urls
 
 # Examples:
 # url(r'^$', 'gettingstarted.views.home', name='home'),
@@ -11,6 +12,7 @@ import hello.views
 
 urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
+	url(r'^sbadmin/', include(sbadmin.urls)),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
 ]

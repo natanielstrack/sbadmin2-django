@@ -1,0 +1,164 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<title>sbadmin</title>
+
+	<!--=== CSS ===-->
+
+	<!-- Bootstrap -->
+	<link href="{% static "sbadmin/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet" type="text/css" />
+
+	<!-- jQuery UI -->
+	<!--<link href="plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+	<![endif]-->
+
+	<!-- Theme -->
+	<link href="{% static "sbadmin/assets/css/main.css" %}" rel="stylesheet" type="text/css" />
+	<link href="{% static "sbadmin/assets/css/plugins.css" %}" rel="stylesheet" type="text/css" />
+	<link href="{% static "sbadmin/assets/css/responsive.css" %}" rel="stylesheet" type="text/css" />
+	<link href="{% static "sbadmin/assets/css/icons.css" %}" rel="stylesheet" type="text/css" />
+
+	<link rel="stylesheet" href="{% static "sbadmin/assets/css/fontawesome/font-awesome.min.css" %}">
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="{% static "sbadmin/assets/css/fontawesome/font-awesome-ie7.min.css">
+	<![endif]-->
+
+	<!--[if IE 8]>
+		<link href="{% static "sbadmin/assets/css/ie8.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
+	<!--=== JavaScript ===-->
+
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/libs/jquery-1.10.2.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/jquery-ui/jquery-ui-1.10.2.custom.min.js" %}"></script>
+
+	<script type="text/javascript" src="{% static "sbadmin/bootstrap/js/bootstrap.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/libs/lodash.compat.min.js" %}"></script>
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="{% static "sbadmin/assets/js/libs/html5shiv.js" %}"></script>
+	<![endif]-->
+
+	<!-- Smartphone Touch Events -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/touchpunch/jquery.ui.touch-punch.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/event.swipe/jquery.event.move.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/event.swipe/jquery.event.swipe.js" %}"></script>
+
+	<!-- General -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/libs/breakpoints.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/respond/respond.min.js" %}"></script> <!-- Polyfill for min/max-width CSS3 Media Queries (only for IE8) -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/cookie/jquery.cookie.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/slimscroll/jquery.slimscroll.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/slimscroll/jquery.slimscroll.horizontal.min.js" %}"></script>
+
+	<!-- Page Specific Plugins -->
+	{% block head %}
+	{% endblock%}
+
+</head>
+
+<body>
+
+    {% block header %}
+        {% include 'sbadmin/header.html' %}
+    {% endblock %}
+
+
+	<div id="container" class="sidebar-closed">
+
+	            {% block sidebar %}
+	                {% include 'sbadmin/sidebar.html' %}
+	            {% endblock %}
+
+		<div id="content">
+			<div class="container">
+				<!-- Breadcrumbs line -->
+				<div class="crumbs">
+					<ul id="breadcrumbs" class="breadcrumb">
+						<li>
+							<i class="icon-home"></i>
+							<a href="index.html">Dashboard</a>
+						</li>
+						<li class="current">
+							<a href="pages_calendar.html" title="">Calendar</a>
+						</li>
+					</ul>
+
+					<ul class="crumb-buttons">
+						<li><a href="charts.html" title=""><i class="icon-signal"></i><span>Statistics</span></a></li>
+						<li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="icon-tasks"></i><span>Users <strong>(+3)</strong></span><i class="icon-angle-down left-padding"></i></a>
+							<ul class="dropdown-menu pull-right">
+							<li><a href="form_components.html" title=""><i class="icon-plus"></i>Add new User</a></li>
+							<li><a href="tables_dynamic.html" title=""><i class="icon-reorder"></i>Overview</a></li>
+							</ul>
+						</li>
+						<li class="range"><a href="#">
+							<i class="icon-calendar"></i>
+							<span></span>
+							<i class="icon-angle-down"></i>
+						</a></li>
+					</ul>
+				</div>
+				<!-- /Breadcrumbs line -->
+
+				<!--=== Page Header ===-->
+				<div class="page-header" >
+				
+					<div class="page-title">
+			            {% block timetracker %}
+			                {% include 'sbadmin/timetracker.html' %}
+			            {% endblock %}
+					</div>
+
+		            <div  style="display:none">
+						<div class="page-title">
+							<h3>{% block title %}{% endblock %}</h3>
+							<span>Good morning, John!</span>
+						</div>
+
+						<!-- Page Stats -->
+						<ul class="page-stats">
+							<li>
+								<div class="summary">
+									<span>New orders</span>
+									<h3>17,561</h3>
+								</div>
+								<div id="sparkline-bar" class="graph sparkline hidden-xs">20,15,8,50,20,40,20,30,20,15,30,20,25,20</div>
+								<!-- Use instead of sparkline e.g. this:
+								<div class="graph circular-chart" data-percent="73">73%</div>
+								-->
+							</li>
+							<li>
+								<div class="summary">
+									<span>My balance</span>
+									<h3>$21,561.21</h3>
+								</div>
+								<div id="sparkline-bar2" class="graph sparkline hidden-xs">20,15,8,50,20,40,20,30,20,15,30,20,25,20</div>
+							</li>
+						</ul>
+						<!-- /Page Stats -->
+					</div>
+
+
+				</div>
+				<!-- /Page Header -->
+
+				<!--=== Page Content ===-->
+			    {% block body %}
+			    {% endblock %}
+				<!-- /Page Content -->
+			</div>
+			<!-- /.container -->
+
+		</div>
+	</div>
+
+</body>
+</html>

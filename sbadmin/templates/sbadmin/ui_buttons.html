@@ -1,0 +1,517 @@
+{% extends 'sbadmin/base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<!-- Page specific plugins -->
+	<!-- Charts -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/sparkline/jquery.sparkline.min.js" %}"></script>
+
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/moment.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/daterangepicker.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/blockui/jquery.blockUI.min.js" %}"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/app.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.form-components.js" %}"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+	});
+	</script>
+
+	<!-- Demo JS -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/custom.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/demo/ui_buttons.js" %}"></script>
+{% endblock %}
+
+{% block body %}
+
+				<!--=== Page Content ===-->
+				<div class="row">
+					<!--=== General Buttons ===-->
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> General Buttons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<p><strong class="subtitle padding-bottom">Basic Button Styles</strong></p>
+
+								<p class="btn-toolbar btn-toolbar-demo">
+									<button class="btn">Default Button</button>
+									<button class="btn btn-primary">Primary Button</button>
+									<button class="btn btn-info">Info Button</button>
+									<button class="btn btn-success">Success Button</button>
+									<button class="btn btn-warning">Warning Button</button>
+									<button class="btn btn-danger">Danger Button</button>
+									<button class="btn btn-inverse">Inverse Button</button>
+								</p>
+
+								<p><strong class="subtitle padding-bottom">Disabled Button Styles</strong></p>
+
+								<p class="btn-toolbar btn-toolbar-demo">
+									<button class="btn" disabled="">Default Button</button>
+									<button class="btn btn-primary" disabled="">Primary Button</button>
+									<button class="btn btn-info" disabled="">Info Button</button>
+									<button class="btn btn-success" disabled="">Success Button</button>
+									<button class="btn btn-warning" disabled="">Warning Button</button>
+									<button class="btn btn-danger" disabled="">Danger Button</button>
+									<button class="btn btn-inverse" disabled="">Inverse Button</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- /General Buttons -->
+				</div>
+
+				<div class="row">
+					<!--=== Mini Buttons ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Mini Buttons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="btn-toolbar btn-toolbar-demo">
+									<button class="btn btn-xs">Default</button>
+									<button class="btn btn-xs btn-primary">Primary</button>
+									<button class="btn btn-xs btn-info">Info</button>
+									<button class="btn btn-xs btn-success">Success</button>
+									<button class="btn btn-xs btn-warning">Warning</button>
+									<button class="btn btn-xs btn-danger">Danger</button>
+									<button class="btn btn-xs btn-inverse">Inverse</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Mini Buttons -->
+
+					<!--=== Small Buttons ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Small Buttons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="btn-toolbar btn-toolbar-demo">
+									<button class="btn btn-sm">Default</button>
+									<button class="btn btn-sm btn-primary">Primary</button>
+									<button class="btn btn-sm btn-info">Info</button>
+									<button class="btn btn-sm btn-success">Success</button>
+									<button class="btn btn-sm btn-warning">Warning</button>
+									<button class="btn btn-sm btn-danger">Danger</button>
+									<button class="btn btn-sm btn-inverse">Inverse</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Small Buttons -->
+				</div>
+
+				<div class="row">
+					<!--=== Large Buttons ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Large Buttons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="btn-toolbar btn-toolbar-demo">
+									<button class="btn btn-lg">Default</button>
+									<button class="btn btn-lg btn-primary">Primary</button>
+									<button class="btn btn-lg btn-info">Info</button>
+									<button class="btn btn-lg btn-success">Success</button>
+									<button class="btn btn-lg btn-warning">Warning</button>
+									<button class="btn btn-lg btn-danger">Danger</button>
+									<button class="btn btn-lg btn-inverse">Inverse</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Large Buttons -->
+
+					<!--=== Block Buttons ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Block Buttons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<p>
+									<button class="btn btn-primary btn-block">Button</button>
+									<input type="submit" class="btn btn-info btn-block" value="Submit">
+									<a href="javascript:void(0);" class="btn btn-success btn-block">Link</a>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- /Block Buttons -->
+
+					<!--=== Buttons with Icons ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Buttons with Icons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="btn-toolbar">
+									<button class="btn btn-xs"><i class="icon-cog"></i></button>
+									<button class="btn btn-sm"><i class="icon-book"></i></button>
+									<button class="btn"><i class="icon-trash"></i></button>
+									<button class="btn btn-lg"><i class="icon-home"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Buttons with Icons -->
+
+					<!--=== Buttons with Color Icons ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Buttons with Color Icons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="btn-toolbar">
+									<button class="btn btn-xs"><i class="icol-money"></i></button>
+									<button class="btn btn-sm"><i class="icol-cross"></i></button>
+									<button class="btn"><i class="icol-basket"></i></button>
+									<button class="btn btn-lg"><i class="icol-coins"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Buttons with Color Icons -->
+
+					<!--=== Button Toolbar ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Button Toolbar</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="btn-toolbar">
+									<div class="btn-group" style="float: none;"> <!-- float:none; only for demo (centering)! -->
+										<button class="btn"><i class="icol-text-align-left"></i></button>
+										<button class="btn"><i class="icol-text-align-center"></i></button>
+										<button class="btn"><i class="icol-text-align-right"></i></button>
+										<button class="btn"><i class="icol-text-bold"></i></button>
+										<button class="btn"><i class="icol-text-italic"></i></button>
+										<button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu pull-right" style="text-align: left;">
+											<li><a href="#"><i class="icol-printer"></i> Print</a></li>
+											<li><a href="#"><i class="icol-email"></i> Send Email</a></li>
+											<li class="divider"></li>
+											<li><a href="#"><i class="icol-disconnect"></i> Disconnect From Network</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Button Toolbar -->
+
+					<!--=== Stateful Buttons ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Stateful Buttons</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="btn-toolbar">
+									<button type="button" class="btn" data-toggle="button">Single Toggle</button>
+									<button id="btn-load" class="btn btn-primary" data-loading-text="Loading...">Click to Load</button>
+									<button id="btn-load-then-complete" class="btn btn-success" data-loading-text="Loading..." data-complete-text="Resources Downloaded!">Download Resources</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Stateful Buttons -->
+				</div>
+
+				<div class="row">
+					<!--=== Big Buttons ===-->
+					<div class="col-md-12">
+						<div class="widget">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Big Buttons</h4>
+							</div>
+							<div class="widget-content">
+								<div class="row">
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-group"></i>
+											<div>Users</div>
+											<span class="label label-danger">2</span>
+										</a>
+									</div>
+
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-barcode"></i>
+											<div>Products</div>
+											<span class="label label-success">4</span>
+										</a>
+									</div>
+
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-bar-chart"></i>
+											<div>Reports</div>
+										</a>
+									</div>
+
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-sitemap"></i>
+											<div>Categories</div>
+										</a>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-group"></i>
+											<div>Users</div>
+											<span class="label label-danger">2</span>
+										</a>
+									</div>
+
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-barcode"></i>
+											<div>Products</div>
+											<span class="label label-success">4</span>
+										</a>
+									</div>
+
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-bar-chart"></i>
+											<div>Reports</div>
+										</a>
+									</div>
+
+									<div class="col-md-3">
+										<a href="javascript:void(0);" class="btn btn-icon input-block-level">
+											<i class="icon-sitemap"></i>
+											<div>Categories</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Big Buttons -->
+				</div>
+
+				<div class="row">
+					<!--=== Button Dropdown/-ups ===-->
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Button Dropdown/-ups</h4>
+							</div>
+							<div class="widget-content">
+								<p><strong class="subtitle padding-bottom">Button Dropdown</strong></p>
+
+								<div class="btn-toolbar">
+
+									<div class="btn-group">
+										<button class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+											<i class="icol-cog"></i> Settings
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<button class="btn btn-sm dropdown-toggle" data-toggle="dropdown">
+											<i class="icol-cog"></i> Settings
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<button class="btn dropdown-toggle" data-toggle="dropdown">
+											<i class="icol-cog"></i> Settings
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<button class="btn btn-lg dropdown-toggle" data-toggle="dropdown">
+											<i class="icol-cog"></i> Settings
+											<span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+								</div>
+
+								<p><strong class="subtitle padding-bottom">Split Button Dropdown</strong></p>
+
+								<div class="btn-toolbar">
+
+									<div class="btn-group">
+										<button class="btn btn-xs"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn btn-xs dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<button class="btn btn-sm"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<button class="btn"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group">
+										<button class="btn btn-lg"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+								</div>
+
+								<p><strong class="subtitle padding-bottom">Button Dropup</strong></p>
+
+								<div class="btn-toolbar">
+
+									<div class="btn-group dropup">
+										<button class="btn btn-xs dropdown-toggle" data-toggle="dropdown"><i class="icol-cog"></i> Settings <span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group dropup">
+										<button class="btn btn-sm dropdown-toggle" data-toggle="dropdown"><i class="icol-cog"></i> Settings <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group dropup">
+										<button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icol-cog"></i> Settings <span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group dropup">
+										<button class="btn btn-lg dropdown-toggle" data-toggle="dropdown"><i class="icol-cog"></i> Settings <span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+								</div>
+
+								<p><strong class="subtitle padding-bottom">Split Button Dropup</strong></p>
+
+								<p class="btn-toolbar">
+
+									<div class="btn-group dropup">
+										<button class="btn btn-xs"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn btn-xs dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group dropup">
+										<button class="btn btn-sm"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group dropup">
+										<button class="btn"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+
+									<div class="btn-group dropup">
+										<button class="btn btn-lg"><i class="icol-doc-pdf"></i> Download File</button>
+										<button class="btn btn-lg dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="icol-color-swatch-1"></i> Color</a></li>
+											<li><a href="#"><i class="icol-font"></i> Font Size</a></li>
+											<li><a href="#"><i class="icol-html"></i> HTML Version</a></li>
+										</ul>
+									</div>
+								</p>
+
+								<div class="alert alert-info">
+									<strong>Notice!</strong><br>Color icons on small button groups are not supported, so they will be hidden as seen on the example above.
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /Button Dropdown/-ups -->
+				</div>
+				<!-- /Page Content -->
+{% endblock %}

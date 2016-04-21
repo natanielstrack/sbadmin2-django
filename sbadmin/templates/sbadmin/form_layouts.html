@@ -1,0 +1,362 @@
+{% extends 'sbadmin/base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<!-- Page specific plugins -->
+	<!-- Charts -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/sparkline/jquery.sparkline.min.js" %}"></script>
+
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/moment.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/daterangepicker.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/blockui/jquery.blockUI.min.js" %}"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/app.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.form-components.js" %}"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+	});
+	</script>
+
+	<!-- Demo JS -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/custom.js" %}"></script>
+{% endblock %}
+
+{% block body %}
+				<!--=== Page Content ===-->
+				<div class="row">
+					<!--=== Horizontal Forms ===-->
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Horizontal Forms</h4>
+							</div>
+							<div class="widget-content">
+								<form class="form-horizontal row-border" action="#">
+									<div class="form-group">
+										<label class="col-md-2 control-label">Full width input:</label>
+										<div class="col-md-10"><input type="text" name="regular" class="form-control"></div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-2 control-label">Multiple inputs:</label>
+										<div class="col-md-10">
+											<div class="row">
+												<div class="col-md-4">
+													<input type="text" name="regular" class="form-control"><span class="help-block">Left aligned helper</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" name="regular" class="form-control"><span class="help-block align-center">Centered helper</span>
+												</div>
+												<div class="col-md-4">
+													<input type="text" name="regular" class="form-control"><span class="help-block align-right">Right aligned helper</span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-2 control-label">Predefined width:</label>
+										<div class="col-md-10">
+											<input class="form-control input-width-mini" type="text" placeholder=".input-width-mini" style="display: block;">
+											<input class="form-control input-width-small" type="text" placeholder=".input-width-small" style="display: block; margin-top: 6px;">
+											<input class="form-control input-width-medium" type="text" placeholder=".input-width-medium" style="display: block; margin-top: 6px;">
+											<input class="form-control input-width-large" type="text" placeholder=".input-width-large" style="display: block; margin-top: 6px;">
+											<input class="form-control input-width-xlarge" type="text" placeholder=".input-width-xlarge" style="display: block; margin-top: 6px;">
+											<input class="form-control input-width-xxlarge" type="text" placeholder=".input-width-xxlarge" style="display: block; margin-top: 6px;">
+											<input class="form-control input-block-level" type="text" placeholder=".input-block-level" style="display: block; margin-top: 6px;">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-md-2 control-label">Select:</label>
+										<div class="col-md-10">
+											<div class="row">
+												<div class="col-md-4">
+													<select class="form-control" name="select">
+														<option value="opt1">col-md-4</option>
+														<option value="opt2">Option 2</option>
+														<option value="opt3">Option 3</option>
+													</select>
+												</div>
+											</div> <!--.row -->
+
+											<div class="row next-row">
+												<div class="col-md-6">
+													<select class="form-control" name="select">
+														<option value="opt1">col-md-6</option>
+														<option value="opt2">Option 2</option>
+														<option value="opt3">Option 3</option>
+													</select>
+												</div>
+											</div> <!--.row -->
+
+											<div class="row next-row">
+												<div class="col-md-8">
+													<select class="form-control" name="select">
+														<option value="opt1">col-md-8</option>
+														<option value="opt2">Option 2</option>
+														<option value="opt3">Option 3</option>
+													</select>
+												</div>
+											</div> <!--.row -->
+
+											<div class="row next-row">
+												<div class="col-md-12">
+													<select class="form-control" name="select">
+														<option value="opt1">col-md-12</option>
+														<option value="opt2">Option 2</option>
+														<option value="opt3">Option 3</option>
+													</select>
+												</div>
+											</div> <!--.row -->
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- /Horizontal Forms -->
+				</div>
+
+				<div class="row">
+					<!--=== Vertical Forms ===-->
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Vertical Forms</h4>
+							</div>
+							<div class="widget-content">
+								<form class="form-vertical row-border" action="#">
+									<div class="form-group">
+										<label class="control-label">Full width input:</label>
+										<input type="text" name="regular" class="form-control">
+									</div>
+
+									<div class="form-group">
+										<label class="control-label">Multiple inputs:</label>
+										<div class="row">
+											<div class="col-md-4">
+												<input type="text" name="regular" class="form-control"><span class="help-block">Left aligned helper</span>
+											</div>
+											<div class="col-md-4">
+												<input type="text" name="regular" class="form-control"><span class="help-block align-center">Centered helper</span>
+											</div>
+											<div class="col-md-4">
+												<input type="text" name="regular" class="form-control"><span class="help-block align-right">Right aligned helper</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label">Predefined width:</label>
+										<input class="form-control input-width-mini" type="text" placeholder=".input-width-mini" style="display: block;">
+										<input class="form-control input-width-small" type="text" placeholder=".input-width-small" style="display: block; margin-top: 6px;">
+										<input class="form-control input-width-medium" type="text" placeholder=".input-width-medium" style="display: block; margin-top: 6px;">
+										<input class="form-control input-width-large" type="text" placeholder=".input-width-large" style="display: block; margin-top: 6px;">
+										<input class="form-control input-width-xlarge" type="text" placeholder=".input-width-xlarge" style="display: block; margin-top: 6px;">
+										<input class="form-control input-width-xxlarge" type="text" placeholder=".input-width-xxlarge" style="display: block; margin-top: 6px;">
+										<input class="form-control input-block-level" type="text" placeholder=".input-block-level" style="display: block; margin-top: 6px;">
+									</div>
+
+									<div class="form-group">
+										<label class="control-label">Select:</label>
+										<div class="row">
+											<div class="col-md-4">
+												<select class="form-control" name="select">
+													<option value="opt1">col-md-4</option>
+													<option value="opt2">Option 2</option>
+													<option value="opt3">Option 3</option>
+												</select>
+											</div>
+										</div> <!--.row -->
+
+										<div class="row next-row">
+											<div class="col-md-6">
+												<select class="form-control" name="select">
+													<option value="opt1">col-md-6</option>
+													<option value="opt2">Option 2</option>
+													<option value="opt3">Option 3</option>
+												</select>
+											</div>
+										</div> <!--.row -->
+
+										<div class="row next-row">
+											<div class="col-md-8">
+												<select class="form-control" name="select">
+													<option value="opt1">col-md-8</option>
+													<option value="opt2">Option 2</option>
+													<option value="opt3">Option 3</option>
+												</select>
+											</div>
+										</div> <!--.row -->
+
+										<div class="row next-row">
+											<div class="col-md-12">
+												<select class="form-control" name="select">
+													<option value="opt1">col-md-12</option>
+													<option value="opt2">Option 2</option>
+													<option value="opt3">Option 3</option>
+												</select>
+											</div>
+										</div> <!--.row -->
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- /Vertical Forms -->
+				</div>
+
+				<div class="row">
+					<!--=== Form Grid ===-->
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Form Grid</h4>
+							</div>
+							<div class="widget-content">
+								<form class="form-vertical" action="#">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-12">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-12">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-11">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-11">
+											</div>
+											<div class="col-md-1">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-1">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-10">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-10">
+											</div>
+											<div class="col-md-2">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-2">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-9">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-9">
+											</div>
+											<div class="col-md-3">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-3">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-8">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-8">
+											</div>
+											<div class="col-md-4">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-4">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-7">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-7">
+											</div>
+											<div class="col-md-5">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-5">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-6">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-6">
+											</div>
+											<div class="col-md-6">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-6">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-5">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-5">
+											</div>
+											<div class="col-md-7">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-7">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-4">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-4">
+											</div>
+											<div class="col-md-8">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-8">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-3">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-3">
+											</div>
+											<div class="col-md-9">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-9">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-2">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-2">
+											</div>
+											<div class="col-md-10">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-10">
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-1">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-1">
+											</div>
+											<div class="col-md-11">
+												<input type="text" name="regular" class="form-control" placeholder=".col-md-11">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- /Form Grid -->
+				</div>
+				<!-- /Page Content -->
+{% endblock %}

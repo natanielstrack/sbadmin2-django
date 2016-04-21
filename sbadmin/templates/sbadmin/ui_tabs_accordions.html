@@ -1,0 +1,254 @@
+{% extends 'sbadmin/base.html' %}
+	<!-- Page specific plugins -->
+	<!-- Charts -->
+	<script type="text/javascript" src="plugins/sparkline/jquery.sparkline.min.js"></script>
+
+	<script type="text/javascript" src="plugins/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="plugins/daterangepicker/daterangepicker.js"></script>
+	<script type="text/javascript" src="plugins/blockui/jquery.blockUI.min.js"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.js"></script>
+	<script type="text/javascript" src="assets/js/plugins.form-components.js"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+	});
+	</script>
+
+	<!-- Demo JS -->
+	<script type="text/javascript" src="assets/js/custom.js"></script>
+
+{% block body %}
+				<!--=== Page Content ===-->
+				<!--=== Box Tabs ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Box Tabs</h4>
+							</div>
+							<div class="widget-content">
+								<div class="tabbable box-tabs">
+									<ul class="nav nav-tabs">
+										<li><a href="#box_tab3" data-toggle="tab">Section 3</a></li>
+										<li><a href="#box_tab2" data-toggle="tab">Section 2</a></li>
+										<li class="active"><a href="#box_tab1" data-toggle="tab">Section 1</a></li>
+									</ul>
+									<div class="tab-content">
+										<div class="tab-pane active" id="box_tab1">
+											<div class="alert alert-warning"><strong>Hey there!</strong> I'm a cool alert.</div>
+											<p>
+												Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent.
+											</p>
+										</div>
+										<div class="tab-pane" id="box_tab2">
+											<p>Content #2</p>
+										</div>
+										<div class="tab-pane" id="box_tab3">
+											<p>Content #3</p>
+										</div>
+									</div>
+								</div> <!-- /.tabbable portlet-tabs -->
+							</div> <!-- /.widget-content -->
+						</div> <!-- /.widget .box -->
+					</div> <!-- /.col-md-12 -->
+				</div> <!-- /.row -->
+				<!-- /Box Tabs -->
+
+				<!--=== Inline Tabs ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Inline Tabs</h4>
+								<div class="toolbar no-padding">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+									</div>
+								</div>
+							</div>
+							<div class="widget-content">
+								<div class="row">
+									<div class="col-md-6">
+										<!-- Tabs-->
+										<div class="tabbable tabbable-custom">
+											<ul class="nav nav-tabs">
+												<li class="active"><a href="#tab_1_1" data-toggle="tab">Section 1</a></li>
+												<li><a href="#tab_1_2" data-toggle="tab">Section 2</a></li>
+												<li><a href="#tab_1_3" data-toggle="tab">Section 3</a></li>
+											</ul>
+											<div class="tab-content">
+												<div class="tab-pane active" id="tab_1_1">
+													<p>I'm in Section 1.</p>
+													<p>
+														Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+														Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+														Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+													</p>
+												</div>
+												<div class="tab-pane" id="tab_1_2">
+													<p>I'm in Section 2.</p>
+												</div>
+												<div class="tab-pane" id="tab_1_3">
+													<p>I'm in Section 3.</p>
+												</div>
+											</div>
+										</div>
+										<!--END TABS-->
+									</div>
+									<div class="col-md-6">
+										<!-- Tabs-->
+										<div class="tabbable tabbable-custom tabs-below">
+											<div class="tab-content">
+												<div class="tab-pane active" id="tab_2_1">
+													<p>I'm in Section 1.</p>
+													<p>
+														Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+														Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+														Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+													</p>
+												</div>
+												<div class="tab-pane" id="tab_2_2">
+													<p>I'm in Section 2.</p>
+												</div>
+												<div class="tab-pane" id="tab_2_3">
+													<p>I'm in Section 3.</p>
+												</div>
+											</div>
+											<ul class="nav nav-tabs">
+												<li class="active"><a href="#tab_2_1" data-toggle="tab">Section 1</a></li>
+												<li><a href="#tab_2_2" data-toggle="tab">Section 2</a></li>
+												<li><a href="#tab_2_3" data-toggle="tab">Section 3</a></li>
+											</ul>
+										</div>
+										<!--END TABS-->
+									</div>
+								</div> <!-- /.row -->
+								<div class="row">
+									<div class="col-md-6">
+										<!-- Tabs-->
+										<div class="tabbable tabbable-custom tabs-left">
+											<!-- Only required for left/right tabs -->
+											<ul class="nav nav-tabs tabs-left">
+												<li class="active"><a href="#tab_3_1" data-toggle="tab">Section 1</a></li>
+												<li ><a href="#tab_3_2" data-toggle="tab">Section 2</a></li>
+												<li><a href="#tab_3_3" data-toggle="tab">Section 3</a></li>
+											</ul>
+											<div class="tab-content">
+												<div class="tab-pane active" id="tab_3_1">
+													<p>I'm in Section 1. Less content, nonetheless correct height.</p>
+												</div>
+												<div class="tab-pane " id="tab_3_2">
+													<p>I'm in Section 2.</p>
+													<p>
+														Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+													</p>
+												</div>
+												<div class="tab-pane" id="tab_3_3">
+													<p>I'm in Section 3.</p>
+												</div>
+											</div>
+										</div>
+										<!--END TABS-->
+									</div>
+									<div class="col-md-6">
+										<!-- Tabs-->
+										<div class="tabbable tabbable-custom tabs-right">
+											<!-- Only required for left/right tabs -->
+											<ul class="nav nav-tabs tabs-right">
+												<li class="active"><a href="#tab_4_1" data-toggle="tab">Section 1</a></li>
+												<li><a href="#tab_4_2" data-toggle="tab">Section 2</a></li>
+												<li><a href="#tab_4_3" data-toggle="tab">Section 3</a></li>
+											</ul>
+											<div class="tab-content">
+												<div class="tab-pane active" id="tab_4_1">
+													<p>I'm in Section 1.</p>
+													<p>
+														Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.
+													</p>
+												</div>
+												<div class="tab-pane" id="tab_4_2">
+													<p>I'm in Section 2.</p>
+												</div>
+												<div class="tab-pane" id="tab_4_3">
+													<p>I'm in Section 3.</p>
+												</div>
+											</div>
+										</div>
+										<!--END TABS-->
+									</div>
+								</div> <!-- /.row -->
+							</div> <!-- /.widget-content -->
+						</div> <!-- /.widget .box -->
+					</div> <!-- /.col-md-12 -->
+				</div> <!-- /.row -->
+				<!-- /Inline Tabs -->
+
+				<!--=== Accordion ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="widget">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Accordion</h4>
+								<div class="toolbar">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+									</div>
+								</div>
+							</div>
+							<div class="widget-content">
+								<div class="panel-group" id="accordion">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+											Collapsible Group Item #1 </a>
+											</h3>
+										</div>
+										<div id="collapseOne" class="panel-collapse collapse in">
+											<div class="panel-body">
+												 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+											Collapsible Group Item #2 </a>
+											</h3>
+										</div>
+										<div id="collapseTwo" class="panel-collapse collapse">
+											<div class="panel-body">
+												 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+											<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+											Collapsible Group Item #3 </a>
+											</h3>
+										</div>
+										<div id="collapseThree" class="panel-collapse collapse">
+											<div class="panel-body">
+												 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> <!-- /.widget-content -->
+						</div> <!-- /.widget .box -->
+					</div> <!-- /.col-md-12 -->
+				</div> <!-- /.row -->
+				<!-- /Accordion -->
+				<!-- /Page Content -->
+{% endblock %}

@@ -1,0 +1,169 @@
+{% extends 'sbadmin/base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+	<!-- Page specific plugins -->
+	<!-- Charts -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/sparkline/jquery.sparkline.min.js" %}"></script>
+
+	<!-- Nestable List -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/nestable/jquery.nestable.min.js" %}"></script>
+
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/moment.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/daterangepicker.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/blockui/jquery.blockUI.min.js" %}"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/app.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.form-components.js" %}"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+	});
+	</script>
+
+	<!-- Demo JS -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/custom.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/demo/ui_nestable_list.js" %}"></script>		
+{% endblock %}
+
+{% block body %}
+				<!--=== Page Content ===-->
+				<!--=== Nestable Lists ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<h5 class="widget-title"><i class="icon-code"></i> Serialised Output (per list)</h5>
+						<div class="form-group">
+							<textarea id="nestable_list_1_output" class="form-control"></textarea>
+						</div>
+						<div class="form-group">
+							<textarea id="nestable_list_2_output" class="form-control"></textarea>
+						</div>
+						<div class="form-group" id="nestable_list_menu">
+							<button type="button" class="btn" data-action="expand-all">Expand All</button>
+							<button type="button" class="btn" data-action="collapse-all">Collapse All</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+									<h4><i class="icon-reorder"></i> Nestable List 1</h4>
+								</div>
+							<div class="widget-content">
+								<!-- Nestable List 1 -->
+								<div class="dd" id="nestable_list_1">
+									<ol class="dd-list">
+										<li class="dd-item" data-id="1">
+											<div class="dd-handle">Item 1</div>
+										</li>
+										<li class="dd-item" data-id="2">
+											<div class="dd-handle">Item 2</div>
+											<ol class="dd-list">
+												<li class="dd-item" data-id="3"><div class="dd-handle">Item 3</div></li>
+												<li class="dd-item" data-id="4"><div class="dd-handle">Item 4</div></li>
+												<li class="dd-item" data-id="5">
+													<div class="dd-handle">Item 5</div>
+													<ol class="dd-list">
+														<li class="dd-item" data-id="6"><div class="dd-handle">Item 6</div></li>
+														<li class="dd-item" data-id="7"><div class="dd-handle">Item 7</div></li>
+														<li class="dd-item" data-id="8"><div class="dd-handle">Item 8</div></li>
+													</ol>
+												</li>
+												<li class="dd-item" data-id="9"><div class="dd-handle">Item 9</div></li>
+												<li class="dd-item" data-id="10"><div class="dd-handle">Item 10</div></li>
+											</ol>
+										</li>
+										<li class="dd-item" data-id="11">
+											<div class="dd-handle">Item 11</div>
+										</li>
+										<li class="dd-item" data-id="12">
+											<div class="dd-handle">Item 12</div>
+										</li>
+									</ol>
+								</div>
+								<!-- /Nestable List 1 -->
+							</div> <!-- /.widget-content -->
+						</div> <!-- /.widget box -->
+					</div> <!-- /.col-md-6 -->
+
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+									<h4><i class="icon-reorder"></i> Nestable List 2</h4>
+								</div>
+							<div class="widget-content">
+								<!-- Nestable List 2 -->
+								<div class="dd" id="nestable_list_2">
+									<ol class="dd-list">
+										<li class="dd-item" data-id="13">
+											<div class="dd-handle">Item 13</div>
+										</li>
+										<li class="dd-item" data-id="14">
+											<div class="dd-handle">Item 14</div>
+										</li>
+										<li class="dd-item" data-id="15">
+											<div class="dd-handle">Item 15</div>
+											<ol class="dd-list">
+												<li class="dd-item" data-id="16"><div class="dd-handle">Item 16</div></li>
+												<li class="dd-item" data-id="17"><div class="dd-handle">Item 17</div></li>
+												<li class="dd-item" data-id="18"><div class="dd-handle">Item 18</div></li>
+											</ol>
+										</li>
+									</ol>
+								</div>
+								<!-- /Nestable List 2 -->
+							</div> <!-- /.widget-content -->
+						</div> <!-- /.widget box -->
+					</div> <!-- /.col-md-6 -->
+				</div> <!-- /.row -->
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+									<h4><i class="icon-reorder"></i> Nestable List 3 (Draggable Handles)</h4>
+								</div>
+							<div class="widget-content">
+								<!-- Nestable List 3 -->
+								<div class="dd" id="nestable_list_3">
+									<ol class="dd-list">
+										<li class="dd-item dd3-item" data-id="13">
+											<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 13</div>
+										</li>
+										<li class="dd-item dd3-item" data-id="14">
+											<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 14</div>
+										</li>
+										<li class="dd-item dd3-item" data-id="15">
+											<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 15</div>
+											<ol class="dd-list">
+												<li class="dd-item dd3-item" data-id="16">
+													<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 16</div>
+												</li>
+												<li class="dd-item dd3-item" data-id="17">
+													<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 17</div>
+												</li>
+												<li class="dd-item dd3-item" data-id="18">
+													<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">Item 18</div>
+												</li>
+											</ol>
+										</li>
+									</ol>
+								</div>
+								<!-- /Nestable List 3 -->
+							</div> <!-- /.widget-content -->
+						</div> <!-- /.widget box -->
+					</div> <!-- /.col-md-12 -->
+				</div> <!-- /.row -->
+				<!-- /Nestable Lists -->
+				<!-- /Page Content -->
+
+{% endblock %}

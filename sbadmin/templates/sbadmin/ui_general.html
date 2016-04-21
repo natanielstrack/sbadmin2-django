@@ -1,0 +1,532 @@
+{% extends 'sbadmin/base.html' %}
+{% load staticfiles %}
+
+{% block head%}
+	<!-- Page specific plugins -->
+	<!-- Charts -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/sparkline/jquery.sparkline.min.js" %}"></script>
+
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/moment.min.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/daterangepicker/daterangepicker.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/blockui/jquery.blockUI.min.js" %}"></script>
+
+	<!-- Pickers -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/pickadate/picker.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/pickadate/picker.date.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/pickadate/picker.time.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min.js" %}"></script>
+
+	<!-- Noty -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/noty/jquery.noty.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/noty/layouts/top.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/plugins/noty/themes/default.js" %}"></script>
+
+	<!-- Slim Progress Bars -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/nprogress/nprogress.js" %}"></script>
+
+	<!-- Bootbox -->
+	<script type="text/javascript" src="{% static "sbadmin/plugins/bootbox/bootbox.min.js" %}"></script>
+
+	<!-- App -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/app.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/plugins.form-components.js" %}"></script>
+
+	<script>
+	$(document).ready(function(){
+		"use strict";
+
+		App.init(); // Init layout and core plugins
+		Plugins.init(); // Init all plugins
+		FormComponents.init(); // Init all form-specific plugins
+	});
+	</script>
+
+	<!-- Demo JS -->
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/custom.js" %}"></script>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/demo/ui_general.js" %}"></script>
+
+{% endblock %}
+
+{% block body %}
+				<!--=== Page Content ===-->
+				<!--=== Modals ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Modals</h4>
+							</div>
+							<div class="widget-content">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="list-group">
+											<li class="list-group-item list-group-header">
+												<span class="badge">5</span>Advanced Usage with Bootbox
+											</li>
+											<a href="#" class="list-group-item basic-alert">Basic Alert</a>
+											<a href="#" class="list-group-item confirm-dialog">Confirm Dialog</a>
+											<a href="#" class="list-group-item multiple-buttons">Multiple Buttons</a>
+											<a href="#" class="list-group-item multiple-dialogs">Multiple Dialogs</a>
+											<a href="#" class="list-group-item programmatic-close">Programmatic Close</a>
+										</div>
+										<div class="row">
+											<div class="col-md-12">
+												<a data-toggle="modal" href="#myModal1" class="btn btn-default btn-block">Modal dialog</a>
+											</div>
+
+											<!-- Modal dialog -->
+											<div class="modal fade" id="myModal1">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Modal title</h4>
+														</div>
+														<div class="modal-body">
+															One fine body&hellip;
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+															<button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+														</div>
+													</div><!-- /.modal-content -->
+												</div><!-- /.modal-dialog -->
+											</div><!-- /.modal -->
+
+										</div> <!-- /.row -->
+									</div> <!-- /.col-md-6 -->
+
+									<div class="col-md-6">
+										<strong class="subtitle">Default dialog style</strong>
+										<div class="well">
+											<div class="modal" style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1; width: 100%; box-sizing: border-box; display: inline;">
+												<div class="modal-dialog" style="left: 0; width: 100%; padding-top: 0; padding-bottom: 10px; margin: 0;">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Modal title</h4>
+														</div>
+														<div class="modal-body">
+															One fine body&hellip;
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+															<button type="button" class="btn btn-primary">Save changes</button>
+														</div>
+													</div><!-- /.modal-content -->
+												</div><!-- /.modal-dialog -->
+											</div><!-- /.modal -->
+										</div> <!-- /.well -->
+									</div> <!-- /.col-md-6 -->
+								</div> <!-- /.row -->
+							</div> <!-- /.widget-content -->
+						</div> <!-- /.widget .box -->
+					</div> <!-- /.col-md-12 -->
+				</div> <!-- /.row -->
+				<!-- /Modals -->
+
+				<div class="row">
+
+					<div class="col-md-6">
+						<!--=== Notifications ===-->
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Notifications</h4>
+							</div>
+							<div class="widget-content align-center">
+								<div class="alert alert-info fade in">
+									<i class="icon-remove close" data-dismiss="alert"></i>
+									Melon is using <a href="http://needim.github.io/noty/" target="_blank">Noty</a> for the notifications.
+								</div>
+
+								<p>
+									<button class="btn btn-notification" data-layout="top" data-type="alert" data-text="Best check yourself, you're not looking too good.">Alert</button>
+									<button class="btn btn-success btn-notification" data-layout="top" data-type="success" data-text="You successfully read this danger alert message.">Success</button>
+									<button class="btn btn-danger btn-notification" data-layout="top" data-type="error" data-text="There went something wrong.">Error</button>
+								</p>
+								<p>
+									<button class="btn btn-warning btn-notification" data-layout="top" data-type="warning" data-text="<strong>Warning!</strong><br>Best check yourself, you're not looking too good.">Warning</button>
+									<button class="btn btn-primary btn-notification" data-layout="top" data-type="information" data-text="You know that I like you?">Information</button>
+									<button class="btn btn-inverse btn-notification" data-layout="top" data-type="confirm" data-text="Do you want to continue?" data-modal="true">Confirm</button>
+								</p>
+							</div>
+						</div>
+						<!-- /Notifications -->
+
+						<!--=== Alerts ===-->
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Alerts</h4>
+
+								<div class="toolbar no-padding">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+										<span class="btn btn-xs"><i class="icon-plus"></i> Add</span>
+										<span class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
+											Manage <i class="icon-angle-down"></i>
+										</span>
+										<ul class="dropdown-menu pull-right">
+											<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+											<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+											<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="widget-content">
+								<div class="alert alert-warning fade in">
+									<i class="icon-remove close" data-dismiss="alert"></i>
+									<strong>Warning!</strong> Your monthly traffic is reaching limit.
+								</div>
+								<div class="alert alert-success fade in">
+									<i class="icon-remove close" data-dismiss="alert"></i>
+									<strong>Success!</strong> The customer has been successfully added.
+								</div>
+								<div class="alert alert-info fade in">
+									<i class="icon-remove close" data-dismiss="alert"></i>
+									<strong>Info!</strong> You have 17 unread messages.
+								</div>
+								<div class="alert alert-danger fade in">
+									<i class="icon-remove close" data-dismiss="alert"></i>
+									<strong>Error!</strong> Your hourly cronjob has failed.
+								</div>
+								<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+									Cras mattis consectetur purus sit amet fermentum. est non commodo luctus, nisi erat porttitor ligula,
+									eget lacinia odio sem nec elit. Cras mattis.</p>
+							</div>
+						</div>
+						<!-- /Alerts -->
+
+						<!--=== Labels ===-->
+						<div class="widget box hidden-xs">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Labels</h4>
+							</div>
+							<div class="widget-content no-padding">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Labels</th>
+											<th>Markup</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><span class="label label-default">Default</span></td>
+											<td><code>&lt;span class=&quot;label label-default&quot;&gt;Default&lt;/span&gt;</code></td>
+										</tr>
+										<tr>
+											<td><span class="label label-primary">Primary</span></td>
+											<td><code>&lt;span class=&quot;label label-primary&quot;&gt;Primary&lt;/span&gt;</code></td>
+										</tr>
+										<tr>
+											<td><span class="label label-success">Success</span></td>
+											<td><code>&lt;span class=&quot;label label-success&quot;&gt;Success&lt;/span&gt;</code></td>
+										</tr>
+										<tr>
+											<td><span class="label label-info">Info</span></td>
+											<td><code>&lt;span class=&quot;label label-info&quot;&gt;Info&lt;/span&gt;</code></td>
+										</tr>
+										<tr>
+											<td><span class="label label-warning">Warning</span></td>
+											<td><code>&lt;span class=&quot;label label-warning&quot;&gt;Warning&lt;/span&gt;</code></td>
+										</tr>
+										<tr>
+											<td><span class="label label-danger">Danger</span></td>
+											<td><code>&lt;span class=&quot;label label-danger&quot;&gt;Danger&lt;/span&gt;</code></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- /Labels -->
+					</div>
+
+					<div class="col-md-6">
+
+						<!--=== Slim Progress Bars (nprogress) ===-->
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Slim Progress Bars (nprogress)</h4>
+							</div>
+							<div class="widget-content align-center">
+								<p class="padding-top-10px">
+									<button class="btn btn-primary btn-nprogress-start">Start</button>
+									<button class="btn btn-nprogress-set-40">Set to 40%</button>
+									<button class="btn btn-nprogress-inc">Increment by a little</button>
+									<button class="btn btn-nprogress-done">Complete</button>
+								</p>
+
+								<div id="nprogress-info-msg" class="alert alert-info fade in" style="display: none;">
+									<i class="icon-remove close" data-dismiss="alert"></i>
+									Now look at the header, you'll see a very slim progress bar. Press "Complete" to hide it again. :-)
+								</div>
+							</div>
+						</div>
+						<!-- /Slim Progress Bars (nprogress) -->
+
+						<!--=== Progressbars ===-->
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Progressbars</h4>
+							</div>
+							<div class="widget-content">
+								<div class="alert alert-warning">
+									Progress bars use CSS3 gradients, transitions, and animations to achieve all their effects. These features are not supported in IE7-9 or older versions of Firefox. Versions earlier than Internet Explorer 10 and Opera 12 do not support animations.
+								</div>
+								<h3>Basic</h3>
+								<div class="progress">
+									<div class="progress-bar progress-bar-info" style="width: 20%"></div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success" style="width: 40%"></div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+								</div>
+								<div class="progress">
+									<div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+								</div>
+
+								<h3>Striped</h3>
+								<div class="progress progress-striped">
+									<div class="progress-bar progress-bar-info" style="width: 20%"></div>
+								</div>
+								<div class="progress progress-striped">
+									<div class="progress-bar progress-bar-success" style="width: 40%"></div>
+								</div>
+								<div class="progress progress-striped">
+									<div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+								</div>
+								<div class="progress progress-striped">
+									<div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+								</div>
+
+								<h3>Animated</h3>
+								<div class="progress progress-striped active">
+									<div class="progress-bar progress-bar-info" style="width: 20%"></div>
+								</div>
+								<div class="progress progress-striped active">
+									<div class="progress-bar progress-bar-success" style="width: 40%"></div>
+								</div>
+								<div class="progress progress-striped active">
+									<div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+								</div>
+								<div class="progress progress-striped active">
+									<div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+								</div>
+
+								<h3>Stacked</h3>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success" style="width: 35%"></div>
+									<div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+									<div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+								</div>
+							</div>
+						</div>
+						<!-- /Progressbars -->
+					</div>
+				</div>
+
+				<!--=== Tooltips & Popovers ===-->
+				<div class="row">
+
+					<!--=== Tooltips ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Tooltips</h4>
+							</div>
+							<div class="widget-content align-center">
+								<p class="align-left">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+								<p>
+									<button class="btn bs-tooltip" data-placement="top" data-original-title="Tooltip at top">Top</button>
+									<button class="btn bs-tooltip" data-placement="left" data-original-title="Tooltip at left">Left</button>
+									<button class="btn bs-tooltip" data-placement="right" data-original-title="Tooltip at right">Right</button>
+									<button class="btn bs-tooltip" data-placement="bottom" data-original-title="Tooltip at bottom">Bottom</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- /Tooltips -->
+
+					<!--=== Popovers ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Popovers</h4>
+							</div>
+							<div class="widget-content align-center">
+								<p class="align-left">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+								<p>
+									<button class="btn bs-popover" data-trigger="hover" data-placement="top" data-content="Popover body goes here! Popover body goes here!" data-original-title="Popover at top">Top</button>
+									<button class="btn bs-popover" data-trigger="hover" data-placement="left" data-content="Popover body goes here! Popover body goes here!" data-original-title="Popover at left">Left</button>
+									<button class="btn bs-popover" data-trigger="hover" data-placement="right" data-content="Popover body goes here! Popover body goes here!" data-original-title="Popover at right">Right</button>
+									<button class="btn bs-popover" data-trigger="hover" data-placement="bottom" data-content="Popover body goes here! Popover body goes here!" data-original-title="Popover at bottom">Bottom</button>
+								</p>
+							</div>
+						</div>
+					</div>
+					<!-- /Popovers -->
+				</div> <!-- /.row -->
+				<!-- /Tooltips & Popovers -->
+
+				<!--=== Ribbons ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<h5 class="widget-title">Ribbons</h5>
+					</div>
+				</div>
+
+				<div class="row">
+
+					<!--=== Top Left (Blue) ===-->
+					<div class="col-md-3">
+						<div class="widget box">
+							<div class="widget-content">
+								<div class="ribbon-wrapper ribbon-top-left">
+									<div class="ribbon blue">Top Left</div>
+								</div>
+
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+							</div>
+						</div>
+					</div>
+					<!-- /Top Right (Blue) -->
+
+					<!--=== Top Right (Green) ===-->
+					<div class="col-md-3">
+						<div class="widget box">
+							<div class="widget-content">
+								<div class="ribbon-wrapper ribbon-top-right">
+									<div class="ribbon green">Top Right</div>
+								</div>
+
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+							</div>
+						</div>
+					</div>
+					<!-- /Top Right (Green) -->
+
+					<!--=== Top Left (Orange) ===-->
+					<div class="col-md-3">
+						<div class="widget box">
+							<div class="widget-content">
+								<div class="ribbon-wrapper ribbon-top-left">
+									<div class="ribbon orange">Top Left</div>
+								</div>
+
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+							</div>
+						</div>
+					</div>
+					<!-- /Top Right (Orange) -->
+
+					<!--=== Top Right (Red) ===-->
+					<div class="col-md-3">
+						<div class="widget box">
+							<div class="widget-content">
+								<div class="ribbon-wrapper ribbon-top-right">
+									<div class="ribbon red">Top Right</div>
+								</div>
+
+								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+							</div>
+						</div>
+					</div>
+					<!-- /Top Right (Red) -->
+
+				</div> <!-- /.row -->
+				<!-- /Ribbons -->
+
+				<!--=== Title ===-->
+				<div class="row">
+					<div class="col-md-12">
+						<h5 class="widget-title"><i class="icon-hand-up"></i> Pickers</h5>
+					</div>
+				</div>
+				<!-- /Title -->
+
+				<!--=== Pickers ===-->
+				<div class="row">
+
+					<!--=== Date Pickers ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Date Pickers</h4>
+							</div>
+							<div class="widget-content">
+								<form class="form-horizontal row-border" action="#">
+									<div class="form-group">
+										<label class="col-md-3 control-label">Default datepicker:</label>
+										<div class="col-md-9">
+											<input type="text" name="regular" class="form-control datepicker">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Fullscreen datepicker:</label>
+										<div class="col-md-9">
+											<input type="text" name="regular" class="form-control datepicker-fullscreen">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Fullscreen timepicker:</label>
+										<div class="col-md-9">
+											<input type="text" name="regular" class="form-control timepicker-fullscreen">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Inline fixed:</label>
+										<div class="col-md-9">
+											<div class="inlinepicker datepicker-fixed"></div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Inline liquid:</label>
+										<div class="col-md-9">
+											<div class="inlinepicker datepicker-liquid"></div>
+										</div>
+									</div>
+								</form>
+							</div> <!-- /.widget-content -->
+						</div>
+					</div>
+					<!-- /Date Pickers -->
+
+					<!--=== Color Pickers ===-->
+					<div class="col-md-6">
+						<div class="widget box">
+							<div class="widget-header">
+								<h4><i class="icon-reorder"></i> Color Pickers</h4>
+							</div>
+							<div class="widget-content">
+								<form class="form-horizontal row-border" action="#">
+									<div class="form-group">
+										<label class="col-md-3 control-label">HEX format:</label>
+										<div class="col-md-9">
+											<input type="text" name="regular" class="form-control bs-colorpicker" value="#8fff00" data-color-format="hex">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">RGBa format:</label>
+										<div class="col-md-9">
+											<input type="text" name="regular" class="form-control bs-colorpicker" value="rgb(0,194,255,0.78)" data-color-format="rgba">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Using events:</label>
+										<div class="col-md-9">
+											<a href="#" class="btn btn-default btn-block" id="colorpicker-event" data-color-format="hex" data-color="#fff">Change background color</a>
+										</div>
+									</div>
+								</form>
+							</div> <!-- /.widget-content -->
+						</div>
+					</div>
+					<!-- /Color Pickers -->
+
+				</div>
+				<!-- /Page Content -->
+{% endblock %}
