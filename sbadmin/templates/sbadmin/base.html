@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<title>sbadmin</title>
+	<script type="text/javascript" src="{% static "sbadmin/assets/js/angular.min.js" %}"></script>
 
 	<!--=== CSS ===-->
 
@@ -58,6 +59,7 @@
 	<script type="text/javascript" src="{% static "sbadmin/plugins/slimscroll/jquery.slimscroll.min.js" %}"></script>
 	<script type="text/javascript" src="{% static "sbadmin/plugins/slimscroll/jquery.slimscroll.horizontal.min.js" %}"></script>
 
+	
 	<!-- Page Specific Plugins -->
 	{% block head %}
 	{% endblock%}
@@ -66,12 +68,13 @@
 
 <body>
 
+
     {% block header %}
         {% include 'sbadmin/header.html' %}
     {% endblock %}
 
 
-	<div id="container" class="sidebar-closed">
+	<div id="container" class="sidebar-closed" ng-app>
 
 	            {% block sidebar %}
 	                {% include 'sbadmin/sidebar.html' %}
@@ -116,36 +119,6 @@
 			                {% include 'sbadmin/timetracker.html' %}
 			            {% endblock %}
 					</div>
-
-		            <div  style="display:none">
-						<div class="page-title">
-							<h3>{% block title %}{% endblock %}</h3>
-							<span>Good morning, John!</span>
-						</div>
-
-						<!-- Page Stats -->
-						<ul class="page-stats">
-							<li>
-								<div class="summary">
-									<span>New orders</span>
-									<h3>17,561</h3>
-								</div>
-								<div id="sparkline-bar" class="graph sparkline hidden-xs">20,15,8,50,20,40,20,30,20,15,30,20,25,20</div>
-								<!-- Use instead of sparkline e.g. this:
-								<div class="graph circular-chart" data-percent="73">73%</div>
-								-->
-							</li>
-							<li>
-								<div class="summary">
-									<span>My balance</span>
-									<h3>$21,561.21</h3>
-								</div>
-								<div id="sparkline-bar2" class="graph sparkline hidden-xs">20,15,8,50,20,40,20,30,20,15,30,20,25,20</div>
-							</li>
-						</ul>
-						<!-- /Page Stats -->
-					</div>
-
 
 				</div>
 				<!-- /Page Header -->

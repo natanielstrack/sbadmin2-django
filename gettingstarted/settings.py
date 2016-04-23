@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sbadmin',
+    'multiverse',
     'hello'
 )
 
@@ -67,6 +68,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'multiverse.context_processor.global_vars',
                 'sbadmin.context_processor.global_vars',
             ],
         },
