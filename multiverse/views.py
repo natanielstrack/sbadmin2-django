@@ -14,7 +14,3 @@ def index(request):
     header = json.loads(open(app+"static/multiverse/data/tempHeader.json", "r").read())
     variavelView = json.loads('[{"id":"um"},{"id":"dois"}]')
     return render(request, app+'index.html', {'title':title, 'variavelTemplate':variavelView, 'breadCrumb':breadCrumb, 'breadCrumbButtons':breadCrumbButtons, 'header':header})
-
-
-def ola(request):
-    return HttpResponse('Hello from Python!')
