@@ -2,12 +2,12 @@ var fullApp = angular.module('fullApp', []);
 
 fullApp.controller('AppBody', function ($scope) {
   $scope.phones = [
-    {'name': 'Nexus S',
-     'snippet': 'Fast just got faster with Nexus S.'},
-    {'name': 'Motorola XOOM™ with Wi-Fi',
-     'snippet': 'The Next, Next Generation tablet.'},
-    {'name': 'MOTOROLA XOOM™',
-     'snippet': 'The Next, Next Generation tablet.'}
+    {'name': 'Task 1',
+     'snippet': 'Example of a task.'},
+    {'name': 'Task 2',
+     'snippet': 'Another task.'},
+    {'name': 'Task 3™',
+     'snippet': 'The last one.'}
   ];
   $scope.search = [
     {'title': 'Documents',},
