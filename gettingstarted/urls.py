@@ -3,7 +3,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 admin.autodiscover()
 
-import hello.views
+import multiverse.views
 import sbadmin.urls, multiverse.urls
 
 # Examples:
@@ -11,9 +11,8 @@ import sbadmin.urls, multiverse.urls
 # url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
-    url(r'^$', hello.views.index, name='index'),
+    url(r'^$', multiverse.views.index, name='index'),
 	url(r'^sbadmin/', include(sbadmin.urls)),
-	url(r'^multiverse/', include(multiverse.urls)),
-    url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
+	url(r'^multiverse/', include(multiverse.urls)),
 ]

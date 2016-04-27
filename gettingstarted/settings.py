@@ -38,8 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sbadmin',
-    'multiverse',
-    'hello'
+    'multiverse'
 )
 
 MIDDLEWARE_CLASSES = (

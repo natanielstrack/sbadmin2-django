@@ -6,21 +6,7 @@ app = 'sbadmin/'
 
 # Create your views here.
 def index(request):
-    #return HttpResponse('Hello from Python!')
     return render(request, app+'index.html')
-
-def tracker(request):
-    #return HttpResponse('Hello from Python!')
-    return render(request, app+'tracker.html')
-
-def kanban(request):
-    list_page = Page.objects.all()
-
-    #return HttpResponse('Hello from Python!')
-    return render(request, app+'kanban.html', {'list':list_page})
-
-def backlog(request):
-    return render(request, app+'backlog.html')
 
 def ui_general(request):
     return render(request, app+'ui_general.html')
