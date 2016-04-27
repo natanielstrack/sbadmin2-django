@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 import os
 import dj_database_url
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -68,8 +67,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'multiverse.context_processor.global_vars',
-                'sbadmin.context_processor.global_vars',
             ],
         },
     },
@@ -141,8 +138,3 @@ STATICFILES_DIRS = (
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-TEMPLATE_CONTEXT_PROCESSORS = TCP + [
-    'django.template.context_processors.request',
-]
-

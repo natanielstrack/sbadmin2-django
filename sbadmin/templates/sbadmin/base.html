@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="fullApp">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
@@ -66,7 +66,7 @@
 
 </head>
 
-<body>
+<body  ng-controller="AppBody">
 
 
     {% block header %}
@@ -74,7 +74,7 @@
     {% endblock %}
 
 
-	<div id="container" class="sidebar-closed" ng-app>
+	<div id="container" class="sidebar-closed">
 
 	            {% block sidebar %}
 	                {% include 'sbadmin/sidebar.html' %}
@@ -85,28 +85,35 @@
 				<!-- Breadcrumbs line -->
 				<div class="crumbs">
 					<ul id="breadcrumbs" class="breadcrumb">
+						{% for item in breadCrumb  %}
 						<li>
-							<i class="icon-home"></i>
-							<a href="index.html">Dashboard</a>
+							{% if forloop.first %}
+								<i class="icon-home"></i>
+							{% endif %}
+							<a href="{{item.link}}">{{item.title}}</a>
 						</li>
-						<li class="current">
-							<a href="pages_calendar.html" title="">Calendar</a>
-						</li>
+					    {% endfor  %}
 					</ul>
 
 					<ul class="crumb-buttons">
-						<li><a href="charts.html" title=""><i class="icon-signal"></i><span>Statistics</span></a></li>
-						<li class="dropdown"><a href="#" title="" data-toggle="dropdown"><i class="icon-tasks"></i><span>Users <strong>(+3)</strong></span><i class="icon-angle-down left-padding"></i></a>
-							<ul class="dropdown-menu pull-right">
-							<li><a href="form_components.html" title=""><i class="icon-plus"></i>Add new User</a></li>
-							<li><a href="tables_dynamic.html" title=""><i class="icon-reorder"></i>Overview</a></li>
+						{% for button in breadCrumbButtons %}
+						<li {% if button.class != '' %}class="{{button.class}}"{% endif %}>
+							<a href="{{button.link.url}}" title="" {% if button.class != '' %}data-toggle="{{button.class}}"{% endif %}>
+								<i class="{{button.link.iconLeft}}"></i>
+								<span>{{button.link.text | safe}}</span>
+								{% if button.link.iconRight != '' %}
+									<i class="{{button.link.iconRight}}"></i>
+								{% endif %}
+							</a>
+							{% if button.options.data %}
+							<ul class="{{button.options.icon}}">
+								{% for item in button.options.data %}
+									<li><a href="{{item.link}}" title=""><i class="{{item.icon}}"></i>{{item.text}}</a></li>
+							    {% endfor  %}
 							</ul>
+							{% endif %}
 						</li>
-						<li class="range"><a href="#">
-							<i class="icon-calendar"></i>
-							<span></span>
-							<i class="icon-angle-down"></i>
-						</a></li>
+					    {% endfor  %}
 					</ul>
 				</div>
 				<!-- /Breadcrumbs line -->

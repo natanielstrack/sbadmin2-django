@@ -1,0 +1,44 @@
+[
+	{	
+		"class":"",
+		"link":{
+			"url":"charts.html",
+			"iconLeft":"icon-signal",
+			"text":"Statistics"
+		}
+	},
+	{	
+		"class":"dropdown",
+		"link":{
+			"url":"#",
+			"iconLeft":"icon-tasks",
+			"text":"Users <strong>(+3)</strong>",
+			"iconRight":"icon-angle-down left-padding"
+		},
+		"options":{
+			"icon": "dropdown-menu pull-right",
+			"data": [
+				{
+					"link":"form_components.html",
+					"icon":"icon-plus",
+					"text":"Add new User"
+				},
+				{
+					"link":"tables_dynamic.html",
+					"icon":"icon-reorder",
+					"text":"Overview"
+				}
+			]
+
+		}
+	},
+	{	
+		"class":"range",
+		"link":{
+			"url":"#",
+			"iconLeft":"icon-calendar",
+			"dropDown":"icon-angle-down",
+			"iconRight":"icon-angle-down left-padding"
+		}
+	}
+]

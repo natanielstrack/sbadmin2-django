@@ -1,0 +1,45 @@
+{
+	"leftMenu":[
+		{
+			"link":{
+					"url":"#",
+					"title": "Dashboard"
+				}
+		},
+		{
+			"class":"dropdown",
+			"link":{
+					"url":"#",
+					"title": "Dropdown",
+					"itens": [
+						{
+							"link":"#",
+							"icon":"icon-user",
+							"title":"Example #1"
+						},
+						{
+							"link":"#",
+							"icon":"icon-calendar",
+							"title":"Example #2"
+						},						
+						{
+							"divider":true
+						},						
+						{
+							"link":"#",
+							"icon":"icon-tasks",
+							"title":"Example #3"
+						}
+					]
+				}
+		}
+	],
+	"rightMenu":{
+		"notifications":"",
+		"tasks":"",
+		"messages":"",
+		"toggler":true,
+		"projects":"",
+		"user":""
+	}
+}

@@ -12,7 +12,7 @@
 			<!-- Logo -->
 			<a class="navbar-brand" href="{% url 'index' %}">
 				<img src="{% static "sbadmin/assets/img/logo.png" %}" alt="logo"  style="display:none" />
-				<strong>Back</strong>Task
+				{{title|safe}}
 			</a>
 			<!-- /logo -->
 
@@ -24,23 +24,29 @@
 
 			<!-- Top Left Menu -->
 			<ul class="nav navbar-nav navbar-left hidden-xs hidden-sm">
+				{% for item in header.leftMenu  %}
 				<li>
-					<a href="#">
-						Dashboard
-					</a>
+					{% if not item.link.itens %}
+						<a href="{{item.link.url}}">
+							{{item.link.title}}
+						</a>
+					{% else%}
+						<a href="{{item.link.url}}" class="dropdown-toggle" data-toggle="dropdown" >
+							{{item.link.title}}
+							<i class="icon-caret-down small"></i>
+						</a>
+						<ul class="dropdown-menu">
+							{% for subitem in item.link.itens %}
+								{% if subitem.divider%}
+									<li class="divider"></li>
+								{% else%}
+									<li><a href="{{subitem.link}}"><i class="{{subitem.icon}}"></i> {{subitem.title}}</a></li>
+								{% endif %}
+							{% endfor %}
+						</ul>
+					{% endif %}
 				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						Dropdown
-						<i class="icon-caret-down small"></i>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#"><i class="icon-user"></i> Example #1</a></li>
-						<li><a href="#"><i class="icon-calendar"></i> Example #2</a></li>
-						<li class="divider"></li>
-						<li><a href="#"><i class="icon-tasks"></i> Example #3</a></li>
-					</ul>
-				</li>
+				{% endfor  %}
 			</ul>
 			<!-- /Top Left Menu -->
 
