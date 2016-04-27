@@ -1,8 +1,8 @@
 {
-  "name": "Python on Heroku example",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "SB Admin 2 and Django",
+  "description": "A small project to test the integration between Django and SB Admin 2.",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "django" ],
+  "repository": "https://github.com/natanielstrack/sbadmin2-django.git",
+  "keywords": ["python", "django", "sbadmin2" ],
   "addons": [ "heroku-postgresql" ]
 }

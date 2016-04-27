@@ -55,21 +55,12 @@
 
 {% block body%}
 
-    <ul>
-      {% for phone in variavelTemplate  %}
-        <li>
-            <span>{{phone.id}}</span>
-        </li>
-      {% endfor  %}
-    </ul>
-
-
-
-    <ul>
+  <!-- Some test with angular -->
+  <ul>
     <li ng-repeat="phone in phones">
       {% verbatim %}
-	      <span>{{phone.name}}</span>
-	      <p>{{phone.snippet}}</p>
+        <span>{{phone.name}}</span>
+        <p>{{phone.snippet}}</p>
       {% endverbatim %}
     </li>
   </ul>

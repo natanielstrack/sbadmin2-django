@@ -6,9 +6,6 @@ admin.autodiscover()
 import multiverse.views
 import sbadmin.urls, multiverse.urls
 
-# Examples:
-# url(r'^$', 'gettingstarted.views.home', name='home'),
-# url(r'^blog/', include('blog.urls')),
 
 urlpatterns = [
     url(r'^$', multiverse.views.index, name='index'),

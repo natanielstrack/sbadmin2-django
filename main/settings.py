@@ -1,5 +1,5 @@
 """
-Django settings for gettingstarted project, on Heroku. For more info, see:
+Django settings for main project, on Heroku. For more info, see:
 https://github.com/heroku/heroku-django-template
 
 For more information on this file, see
@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'gettingstarted.urls'
+ROOT_URLCONF = 'main.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'gettingstarted.wsgi.application'
+WSGI_APPLICATION = 'main.wsgi.application'
 
 
 # Database
