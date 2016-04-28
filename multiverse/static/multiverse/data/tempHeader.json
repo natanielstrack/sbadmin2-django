@@ -35,11 +35,184 @@
 		}
 	],
 	"rightMenu":{
-		"notifications":"",
-		"tasks":"",
-		"messages":"",
+		"notifications":[
+				{
+					"link":"javascript:void(0);",
+					"icon":"icon-plus",
+					"class":"label label-success",
+					"message":"New user registration.",
+					"time":"1"
+				},
+				{
+					"link":"javascript:void(0);",
+					"icon":"icon-warning-sign",
+					"class":"label label-danger",
+					"message":"High CPU load on cluster #2",
+					"time":"5"
+				},
+				{
+					"link":"javascript:void(0);",
+					"icon":"icon-plus",
+					"class":"label label-success",
+					"message":"New user registration.",
+					"time":"10"
+				},
+				{
+					"link":"javascript:void(0);",
+					"icon":"icon-bullhorn",
+					"class":"label label-info",
+					"message":"New items are in queue.",
+					"time":"25"
+				},
+				{
+					"link":"javascript:void(0);",
+					"icon":"icon-bolt",
+					"class":"label label-warning",
+					"message":"Disk space to 85% full.",
+					"time":"55"
+				}
+		],
+		"tasks":[
+				{
+					"link":"javascript:void(0);",
+					"description":"Preparing new release",
+					"percent":"30",
+					"class":"progress progress-small",
+					"progressClass":"progress-bar progress-bar-info"
+				},
+				{
+					"link":"javascript:void(0);",
+					"description":"Change management",
+					"percent":"80",
+					"class":"progress progress-small progress-striped active",
+					"progressClass":"progress-bar progress-bar-danger"
+				},
+				{
+					"link":"javascript:void(0);",
+					"description":"Mobile development",
+					"percent":"60",
+					"class":"progress progress-small",
+					"progressClass":"progress-bar progress-bar-success"
+				},
+				{
+					"link":"javascript:void(0);",
+					"description":"Database migration",
+					"percent":"20",
+					"class":"progress progress-small",
+					"progressClass":"progress-bar progress-bar-warning"
+				}
+			],
+		"messages":[
+			{
+				"link":"javascript:void(0);",
+				"photo":"sbadmin/assets/img/demo/avatar-1.jpg",
+				"from":"Bob Carter",
+				"time":"Just Now",
+				"text":"Consetetur sadipscing elitr..."
+			},
+			{
+				"link":"javascript:void(0);",
+				"photo":"sbadmin/assets/img/demo/avatar-2.jpg",
+				"from":"Jane Doe",
+				"time":"45 mins",
+				"text":"Sed diam nonumy..."
+			},
+			{
+				"link":"javascript:void(0);",
+				"photo":"sbadmin/assets/img/demo/avatar-3.jpg",
+				"from":"Patrick Nilson",
+				"time":"6 hours",
+				"text":"No sea takimata sanctus..."
+			}
+		],
 		"toggler":true,
-		"projects":"",
-		"user":""
+		"projects": [
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-desktop",
+							"title":"Lorem ipsum dolor"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-compass",
+							"title":"Dolor sit invidunt"
+						},
+						{
+							"current":true,
+							"link":"javascript:void(0);",
+							"icon":"icon-male",
+							"title":"Consetetur sadipscing elitr"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-thumbs-up",
+							"title":"Sed diam nonumy"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-female",
+							"title":"At vero eos et"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-beaker",
+							"title":"Sed diam voluptua"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-desktop",
+							"title":"Lorem ipsum dolor"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-compass",
+							"title":"Dolor sit invidunt"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-male",
+							"title":"Consetetur sadipscing elitr"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-thumbs-up",
+							"title":"Sed diam nonumy"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-female",
+							"title":"At vero eos et"
+						},
+						{
+							"link":"javascript:void(0);",
+							"icon":"icon-beaker",
+							"title":"Sed diam voluptua"
+						}
+					],
+		"user":
+			{
+				"name":"John Doe",
+				"menu":[
+							{
+								"link":"pages_user_profile.html",
+								"icon":"icon-user",
+								"title":"My Profile"								
+							},
+							{
+								"link":"pages_calendar.html",
+								"icon":"icon-calendar",
+								"title":"My Calendar"								
+							},
+							{
+								"divider":true								
+							},
+							{
+								"link":"login.html",
+								"icon":"icon-key",
+								"title":"Log Out"								
+							}
+						]
+
+			}
 	}
 }
