@@ -6,7 +6,7 @@ fullApp.controller('AppBody', function ($scope) {
      'snippet': 'Example of a task.'},
     {'name': 'Task 2',
      'snippet': 'Another task.'},
-    {'name': 'Task 3™',
+    {'name': 'Task 3',
      'snippet': 'The last one.'}
   ];
 
